@@ -10,15 +10,15 @@ interface HeaderProps {
 const Header = ({ user, onLogout }: HeaderProps) => {
   const getRoleColor = (role: string) => {
     switch (role) {
-      case 'admin': return 'bg-gradient-to-r from-red-500 to-pink-500';
-      case 'patient': return 'bg-gradient-to-r from-green-500 to-blue-500';
-      case 'staff': return 'bg-gradient-to-r from-purple-500 to-indigo-500';
-      default: return 'bg-gradient-to-r from-gray-500 to-gray-600';
+      case 'admin': return 'bg-gradient-to-r from-red-500/80 to-pink-500/80';
+      case 'patient': return 'bg-gradient-to-r from-green-500/80 to-blue-500/80';
+      case 'staff': return 'bg-gradient-to-r from-purple-500/80 to-indigo-500/80';
+      default: return 'bg-gradient-to-r from-gray-500/80 to-gray-600/80';
     }
   };
 
   return (
-    <header className="bg-white shadow-lg border-b-4 border-gradient-to-r from-blue-500 to-purple-500">
+    <header className="bg-white/95 backdrop-blur-sm shadow-lg border-b border-blue-500/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
@@ -38,7 +38,7 @@ const Header = ({ user, onLogout }: HeaderProps) => {
             <Button 
               onClick={onLogout}
               variant="outline"
-              className="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition-colors"
+              className="border-2 border-red-500/80 text-red-500/80 hover:bg-red-500/80 hover:text-white transition-colors"
             >
               Logout
             </Button>

@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import LoginForm from '../components/auth/LoginForm';
+import SignupForm from '../components/auth/SignupForm';
 import AdminDashboard from '../components/dashboard/AdminDashboard';
 import PatientDashboard from '../components/dashboard/PatientDashboard';
 import StaffDashboard from '../components/dashboard/StaffDashboard';
@@ -15,6 +16,7 @@ export interface User {
 
 const Index = () => {
   const [user, setUser] = useState<User | null>(null);
+  const [showSignup, setShowSignup] = useState(false);
 
   const handleLogin = (userData: User) => {
     setUser(userData);
@@ -24,8 +26,22 @@ const Index = () => {
     setUser(null);
   };
 
+  const handleSignupSuccess = (userData: User) => {
+    setUser(userData);
+  };
+
   if (!user) {
-    return <LoginForm onLogin={handleLogin} />;
+    return showSignup ? (
+      <SignupForm 
+        onSignupSuccess={handleSignupSuccess}
+        onBackToLogin={() => setShowSignup(false)}
+      />
+    ) : (
+      <LoginForm 
+        onLogin={handleLogin}
+        onShowSignup={() => setShowSignup(true)}
+      />
+    );
   }
 
   return (
