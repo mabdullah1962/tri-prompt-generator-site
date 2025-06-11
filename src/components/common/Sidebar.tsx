@@ -13,7 +13,7 @@ import {
   FileText,
   ChevronLeft,
   ChevronRight,
-  Lifeline
+  Heart
 } from 'lucide-react';
 
 interface MenuItem {
@@ -67,7 +67,7 @@ const Sidebar = ({ menuItems, activeModule, onModuleChange }: SidebarProps) => {
       <div className="p-4 border-b border-blue-500/10">
         <div className="flex items-center space-x-3">
           <div className="bg-gradient-to-r from-blue-600/80 to-purple-600/80 p-2 rounded-lg">
-            <Lifeline className="w-6 h-6 text-white" />
+            <Heart className="w-6 h-6 text-white" />
           </div>
           {!isCollapsed && (
             <div>

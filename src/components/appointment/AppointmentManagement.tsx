@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -5,6 +6,17 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, Clock, User, UserCheck } from 'lucide-react';
+
+interface Appointment {
+  id: number;
+  patientName: string;
+  doctorName: string;
+  department?: string;
+  date: string;
+  time: string;
+  status: string;
+  notes: string;
+}
 
 interface AppointmentManagementProps {
   userRole?: 'admin' | 'patient' | 'staff';
