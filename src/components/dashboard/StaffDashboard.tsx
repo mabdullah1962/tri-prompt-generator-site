@@ -37,18 +37,18 @@ const StaffDashboard = ({ user, onLogout }: StaffDashboardProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50/50 to-purple-50/50">
+    <div className="min-h-screen" style={{ backgroundColor: 'hsl(var(--content-bg))' }}>
+      <Sidebar 
+        menuItems={staffMenuItems}
+        activeModule={activeModule}
+        onModuleChange={setActiveModule}
+      />
       <Header user={user} onLogout={onLogout} />
-      <div className="flex">
-        <Sidebar 
-          menuItems={staffMenuItems}
-          activeModule={activeModule}
-          onModuleChange={setActiveModule}
-        />
-        <main className="flex-1 p-6 bg-white/30 backdrop-blur-sm">
+      <main className="ml-64 pt-20 p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
           {renderContent()}
-        </main>
-      </div>
+        </div>
+      </main>
     </div>
   );
 };
